@@ -1,15 +1,15 @@
 <template>
-  <div>hi</div>
-  <Shu/>
+  <div>导航栏 | 
+    <router-link to ='/'>Frank1</router-link> |
+    <router-link to ='/xxx'>Frank2</router-link>
+  </div>
+  <hr>
+  <router-view />
 </template>
 
 <script>
-import Shu from './components/Shu.vue'
 
 export default {
   name: 'App',
-  components: {
-    Shu:Shu
-  }
 }
 </script>

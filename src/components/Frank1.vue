@@ -1,5 +1,5 @@
 <template>
     <div>
-        我的第一个组件
+        我的第1个组件
     </div>
 </template>
