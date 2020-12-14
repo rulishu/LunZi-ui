@@ -5,7 +5,7 @@
                 <li>菜单1</li>
                 <li>菜单2</li>
         </ul>
-        <span class="toggleAside" @click="toggleAside"></span>
+        <span class="toggleAside" @click="toggleMenu"></span>
     </div>
 </template>
 
@@ -13,11 +13,11 @@
 import { inject ,Ref} from 'vue'
     export default {
         setup(){
-            const asideVisible = inject<Ref<boolean>>('asideVisible') //get
-            const toggleAside = ()=>{
-                asideVisible.value = !asideVisible.value
+            const menuVisible = inject<Ref<boolean>>('menuVisible') //get
+            const toggleMenu = ()=>{
+                menuVisible.value = !menuVisible.value
             }
-            return {toggleAside}
+            return {toggleMenu}
         }
     }
 </script>

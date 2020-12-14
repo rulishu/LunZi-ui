@@ -2,7 +2,7 @@
     <div class="layout">
         <Topnav class="nav"/>
         <div class="content">
-            <aside v-if="asideVisible">
+            <aside v-if="menuVisible">
                 <h2>组件列表</h2>
                 <ol>
                     <li>
@@ -33,8 +33,8 @@ import Topnav from '../components/Topnav.vue'
 export default {
     components: {Topnav},
     setup(){
-            const asideVisible = inject<Ref<boolean>>('asideVisible') //get
-            return {asideVisible}
+            const menuVisible = inject<Ref<boolean>>('menuVisible') //get
+            return {menuVisible}
         }
 }
 </script>
@@ -53,11 +53,11 @@ export default {
         padding-left: 156px;
         @media (max-width: 500px) {
             padding-left: 0; 
-        }
+            }
         }
     }
     .content {
-    display: flex;
+        display: flex;
     > aside {
         flex-shrink: 0;
     }
@@ -69,14 +69,14 @@ export default {
     }
 
     aside {
-    background: lightblue;
-    width: 140px;
-    padding: 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding-top: 70px;
-    height: 100%;
+        background: lightblue;
+        width: 140px;
+        padding: 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: 70px;
+        height: 100%;
     > h2 {
         margin-bottom: 4px;
     }
