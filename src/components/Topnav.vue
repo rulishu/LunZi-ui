@@ -27,8 +27,11 @@ import { inject ,Ref} from 'vue'
     background: pink;
     display: flex;
     padding: 16px;
-    position: relative;
     z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     justify-content: center;
     align-items: center;
     > .logo {
