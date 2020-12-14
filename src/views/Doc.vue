@@ -2,12 +2,11 @@
     <div>
         <Topnav/>
         <div class="content">
-            <aside>边栏</aside>
-            <aside>
+            <aside v-if="asideVisible">
                 <h2>组件列表</h2>
                 <ol>
                     <li>
-                        <router-link to="/doc/swich">Switch 组件</router-link>
+                        <router-link to="/doc/swich">Swich 组件</router-link>
                     </li>
                     <li>
                         <router-link to="/doc/button">Button 组件</router-link>
@@ -26,10 +25,16 @@
 </template>
 
 <script lang = 'ts'>
+import { inject, Ref } from 'vue'
 import Topnav from '../components/Topnav.vue'
 
 export default {
-    components: {Topnav}
+    components: {Topnav},
+    setup(){
+            const asideVisible = inject<Ref<boolean>>('xxx') //get
+            console.log('docnav获取'+asideVisible.value)
+            return {asideVisible}
+        }
 }
 </script>
 
@@ -49,7 +54,7 @@ export default {
         > li {
         padding: 4px 0;
         }
-    }
+      }
     }
 </style>
 
