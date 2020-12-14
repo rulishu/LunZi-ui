@@ -1,14 +1,10 @@
 <template>
-    <div>
-        <div class="topnav">
-            <div class="logo" @click="toggleAside">LOGO</div>
-            <div class="menu">
-                <ul>
-                    <li>菜单1</li>
-                    <li>菜单2</li>
-                </ul>
-            </div>
-        </div>
+    <div class="topnav">
+        <div class="logo" @click="toggleAside">LOGO</div>
+        <ul class="menu">
+                <li>菜单1</li>
+                <li>菜单2</li>
+        </ul>
     </div>
 </template>
 
@@ -16,8 +12,7 @@
 import { inject ,Ref} from 'vue'
     export default {
         setup(){
-            const asideVisible = inject<Ref<boolean>>('xxx') //get
-            console.log('tocnav获取'+asideVisible.value)
+            const asideVisible = inject<Ref<boolean>>('asideVisible') //get
             const toggleAside = ()=>{
                 asideVisible.value = !asideVisible.value
             }
@@ -33,6 +28,8 @@ import { inject ,Ref} from 'vue'
     padding: 16px;
     position: relative;
     z-index: 10;
+    justify-content: center;
+    align-items: center;
     > .logo {
         max-width: 20em;
         margin-right: auto;
@@ -44,6 +41,11 @@ import { inject ,Ref} from 'vue'
         > li {
         margin: 0 20em;
         }
+      }
+      
+      @media (max-width: 500px){
+          > .menu{display: none;}
+          > .logo{margin:0 auto}
       }
     }
 </style>
