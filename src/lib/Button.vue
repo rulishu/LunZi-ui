@@ -1,5 +1,9 @@
 <template>
-  <button class="lunzi-button" :class="classes" :disabled="disabled">
+  <button class="lunzi-button" 
+          :class="classes" 
+          :disabled="disabled">
+      <span v-if="loading"
+      class="lunzi-loadingIndicator"></span>
     <slot />
   </button>
 </template>
@@ -23,6 +27,10 @@ export default {
     disabled:{
       type: Boolean,
       default: false
+    },
+    loading:{
+      type:Boolean,
+      default:false,
     }
   },
   setup(props){
@@ -42,10 +50,10 @@ export default {
 <style lang='scss'>
   $h: 32px;
   $border-color: #d9d9d9;
-  $color: #333;
-  $blue: #40a9ff;
+  $color: rgb(177, 102, 102);
+  $blue: #7aa4c7;
   $radius: 4px;
-  $red:red;
+  $red:orange;
   $grey: grey;
 
   .lunzi-button{
@@ -154,7 +162,7 @@ export default {
       }
     }
   }
- &.gulu-theme-button {
+ &.lunzi-theme-button {
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
@@ -163,11 +171,26 @@ export default {
       }
     }
   }
-  &.gulu-theme-link, &.gulu-theme-text {
+  &.lunzi-theme-link, &.lunzi-theme-text {
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
     }
   }
+  > .lunzi-loadingIndicator{
+    width:14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 8px; 
+    border-color: $blue $blue $blue transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: lunzi-spin 1s infinite linear;
+  }
+}
+@keyframes lunzi-spin {
+  0%{transform: rotate(0deg)} 
+  100%{transform: rotate(360deg)} 
 }
 </style>
