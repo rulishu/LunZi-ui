@@ -1,6 +1,6 @@
 <template>
   <div>
-      <button @click="toggle" :class="{checked:value}">
+      <button class="lunzi-switch" @click="toggle" :class="{'lunzi-checked':value}">
           <span></span>
       </button>
       <div>{{value}}</div>
@@ -26,14 +26,14 @@ export default {
 <style lang='scss' scoped>
     $h: 22px;
     $h2: $h - 4px;
-  button{
+  .lunzi-switch{
     height: $h;
     width: $h*2;
     border: none;
     background: #bfbfbf;;
     border-radius: $h/2;
     position: relative;
-    &.checked{
+    &.lunzi-checked{
       background:#1890ff;
       > span{
       left: calc(100% - #{$h2} - 2px)
@@ -45,7 +45,7 @@ export default {
     &:active{
       > span{width: $h2 + 4px;}
     }
-    &.checked:active{
+    &.lunzi-checked:active{
       > span{width: $h2 + 4px; margin-left: -4px;}
     }
 }
