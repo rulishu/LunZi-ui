@@ -1,4 +1,5 @@
 <template>
+ <template v-if="visible">
     <div class="lunzi-dialog-overlay"></div>
     <div class="lunzi-dialog-wrapper">
         <div class="lunzi-dialog">
@@ -15,12 +16,19 @@
             </footer>
         </div>
     </div>
+ </template> 
 </template>
 
 <script lang="ts">
 import Button from './Button.vue'
 
 export default {
+    props:{
+        visible:{
+            type:Boolean,
+            default:false,
+        }
+    },
     components:{Button},
 }
 </script>
