@@ -1,5 +1,6 @@
 <template>
  <template v-if="visible">
+    <Teleport to="body">
     <div class="lunzi-dialog-overlay" @click="onClickOverlay"></div>
     <div class="lunzi-dialog-wrapper">
         <div class="lunzi-dialog">
@@ -16,7 +17,8 @@
                 <Button @click="cancel">Cancel</Button>
             </footer>
         </div>
-    </div>
+      </div>
+    </Teleport>
  </template> 
 </template>
 

@@ -2,7 +2,7 @@
     <div class="layout">
         <Topnav class="nav"/>
         <div class="content">
-            <aside v-if="menuVisible">
+            <aside v-if="menuVisible" style="z-index:3">
                 <h2>组件列表</h2>
                 <ol>
                     <li>
