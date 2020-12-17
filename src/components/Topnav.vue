@@ -1,6 +1,11 @@
 <template>
     <div class="topnav">
-        <div class="logo" >LOGO</div>
+        <div class="logo" >
+            <svg class="icon">
+                <use xlink:href="#icon-huaduo"></use>
+            </svg>
+            LOGO
+        </div>
         <ul class="menu">
                 <li>菜单1</li>
                 <li>菜单2</li>
@@ -23,7 +28,9 @@ import { inject ,Ref} from 'vue'
 </script>
 
 <style lang='scss' scoped>
+$color: #007974;
     .topnav{
+    color: $color;
     display: flex;
     padding: 16px;
     z-index: 10;
@@ -36,6 +43,10 @@ import { inject ,Ref} from 'vue'
     > .logo {
         max-width: 20em;
         margin-right: auto;
+          >svg {
+            width: 32px;
+            height: 32px;
+        }
     }
     > .menu {
         display: flex;
@@ -49,9 +60,9 @@ import { inject ,Ref} from 'vue'
         width: 24px;
         height: 24px;
         border-radius: 50%;
-        background: rgb(43, 55, 170);
+        // background: rgb(43, 55, 170);
         position: absolute;
-        left: 10px;
+        left: 20px;
         top: 50%;
         transform: translateY(-50%);
     }
