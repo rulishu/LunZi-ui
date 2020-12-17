@@ -15,11 +15,13 @@
       </div>
          
         <div class="lunzi-tabs-content"> 
-            <component class="lunzi-tabs-content-item" 
+            <component :is="current" :key="current.props.title" />
+            <!-- class="lunzi-tabs-content-item" 
             :class="{selected: c.props.title === selected}"
             v-for="(c,index) in defaults" :key="index"
-             :is='c' />
+             :is='c' -->
         </div>
+        
   </div>
 </template>
 
@@ -57,15 +59,15 @@ export default {
         const titles = defaults.map((tag)=>{
             return tag.props.title
         })
-        // const  current = computed(()=>{
-        //     return defaults.filter((tag)=>{
-        //     return tag.props.title === props.selected
-        // })[0]
-        // })
+        const  current = computed(()=>{
+            return defaults.filter((tag)=>{
+            return tag.props.title === props.selected
+        })[0]
+        })
         const select = (title: string)=>{
             context.emit('update:selected',title)
         }
-        return {defaults,titles,select,selectedItem,indicator,container}
+        return {defaults,titles,current,select,selectedItem,indicator,container}
     }
 }
 </script>
@@ -106,12 +108,12 @@ export default {
 
   &-content {
     padding: 8px 0;
-    &-item {
-      display: none;
-      &.selected {
-        display: block;
-      }
-    }
+    // &-item {
+    //   display: none;
+    //   &.selected {
+    //     display: block;
+    //   }
+    // }
   }
 }
 </style>
