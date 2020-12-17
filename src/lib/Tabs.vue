@@ -1,13 +1,18 @@
 <template>
   <div class="lunzi-tabs">
-      <div class="lunzi-tabs-nav">
+      <div class="lunzi-tabs-nav"  ref="container">
         <div class="lunzi-tabs-nav-item" 
             v-for="(t,index) in titles" 
+            :ref="el => { if (el) navItems[index] = el }"
             @click="select(t)"
             :class="{selected: t === selected}"
-            :key='index'>{{t}}</div>
-            <div class="lunzi-tabs-nav-indicator"></div>
-         </div>
+            :key='index'>{{t}}
+        </div>
+
+        <div class="lunzi-tabs-nav-indicator" 
+                ref="indicator">
+        </div>
+      </div>
          
         <div class="lunzi-tabs-content"> 
             <component class="lunzi-tabs-content-item" 
@@ -20,7 +25,7 @@
 
 <script lang='ts'>
 import Tab from '../lib/Tab.vue'
-import {computed} from 'vue'
+import {computed,ref, onMounted, onUpdated} from 'vue'
 
 export default {
     props:{
@@ -28,7 +33,24 @@ export default {
             type:String 
         }
     },
-    setup(props,context){
+    setup(props,context){   
+        const navItems = ref<HTMLDivElement[]>([])
+        const indicator = ref<HTMLDivElement>(null)
+        const container = ref<HTMLDivElement>(null)
+        const x = ()=>{
+            const divs = navItems.value
+            const result = divs.filter(div => div.classList.contains('selected'))[0]
+
+            const {width} = result.getBoundingClientRect()
+            indicator.value.style.width = width+'px' 
+            const {left: left1} = container.value.getBoundingClientRect()
+            const {left: left2} = result.getBoundingClientRect()
+            const left = left2 - left1
+            indicator.value.style.left = left + 'px'
+        }
+        onMounted(x) //只在第一次渲染执行
+        onUpdated(x)
+
         const defaults = context.slots.default()
         defaults.forEach( (tag)=>{
             if(tag.type != Tab){
@@ -39,7 +61,6 @@ export default {
             return tag.props.title
         })
         const  current = computed(()=>{
-            console.log('重新 return')
             return defaults.filter((tag)=>{
             return tag.props.title === props.selected
         })[0]
@@ -47,7 +68,7 @@ export default {
         const select = (title: string)=>{
             context.emit('update:selected',title)
         }
-        return {defaults,titles,current,select}
+        return {defaults,titles,current,select,navItems,indicator,container}
     }
 }
 </script>
@@ -82,6 +103,7 @@ export default {
         left: 0;
         bottom: -1px;
         width: 100px;
+        transition: all 250ms;
     }
   }
 
