@@ -24,7 +24,6 @@ import { inject ,Ref} from 'vue'
 
 <style lang='scss' scoped>
     .topnav{
-    background: pink;
     display: flex;
     padding: 16px;
     z-index: 10;
@@ -49,9 +48,10 @@ import { inject ,Ref} from 'vue'
     > .toggleAside{
         width: 24px;
         height: 24px;
-        background: red;
+        border-radius: 50%;
+        background: rgb(43, 55, 170);
         position: absolute;
-        left: 16px;
+        left: 10px;
         top: 50%;
         transform: translateY(-50%);
     }
