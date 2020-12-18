@@ -12,7 +12,26 @@
           <Button>查看代码</Button>
         </div>
         <div class="demo-code">
-          <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+<article class="markdown-body">
+<pre>
+  &lt;template&gt;
+    &lt;Switch v-model:value="bool"&gt;
+  &lt;/template &gt;
+
+  &lt;script lang='ts'&gt;
+  import Switch from '../lib/Switch.vue'
+  import {ref} from 'vue'
+
+  export default {
+      components:{Switch},
+      setup() {
+        const bool = ref(false)
+        return {bool}
+      }
+    }
+  &lt;/script&gt;
+</pre>
+</article>
         </div>
       </div>
       <div class="demo">
@@ -23,8 +42,29 @@
         <div class="demo-actions">
           <Button>查看代码</Button>
         </div>
-        <div class="demo-code">
-          <pre>&lt;Switch v-model:value="bool" disabled /&gt;</pre>
+        <div class="demo-code" >
+<article class="markdown-body">
+<pre>
+  <code>
+  &lt;template&gt;
+   &lt;Switch v-model:value="bool" disabled&gt;
+  &lt;/template&gt;
+
+  &lt;script lang='ts'&gt;
+  import Switch from '../lib/Switch.vue'
+  import {ref} from 'vue'
+
+  export default {
+    components:{Switch},
+    setup() {
+      const bool = ref(false)
+      return {bool}
+    }
+  }
+  &lt;/script&gt;
+  </code>
+</pre>
+</article>
         </div>
       </div>
     </div>
@@ -37,13 +77,15 @@ import Switch from '../lib/Switch.vue'
 import Button from '../lib/Button.vue'
 import Switch1Demo from './Switch1Demo.vue'
 import Switch2Demo from './Switch2Demo.vue'
-
+import 'prismjs'
+import 'prismjs/themes/prism.css'
+const Prism = (window as any).Prism
 
 export default {
     components:{Switch,Button,Switch1Demo,Switch2Demo},
     setup() {
       const bool = ref(false)
-      return {bool}
+      return {bool,Switch1Demo,Switch2Demo,Prism}
     }
 }
 </script>

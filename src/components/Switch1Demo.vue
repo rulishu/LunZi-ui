@@ -1,3 +1,4 @@
+
 <template>
     <Switch v-model:value="bool" />
 </template>
@@ -14,7 +15,3 @@ export default {
     }
   }
 </script>
-
-<style lang='scss' scoped>
-
-</style>
