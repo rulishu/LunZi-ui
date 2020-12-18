@@ -2,7 +2,7 @@
     <div>
         安装
     </div>
-    <article>
+    <article class="markdown-body">
         <h1>安装</h1>
         <p>打开终端运行下列命令：</p>
         <pre><code>npm install LunZi-ui</code></pre>
