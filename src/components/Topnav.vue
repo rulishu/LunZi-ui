@@ -50,7 +50,7 @@ $color: #007974;
     align-items: center;
     @media (max-width: 500px){
         >.menu{display: none;}
-        >.logo{margin:0 auto;}
+        // >.logo{margin:0 auto;}
         >.toggleAside{display: inline-block;}
     }
     > .logo {
