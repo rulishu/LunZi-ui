@@ -1,10 +1,18 @@
 <template>
-  <div>Tabs 示例</div>
-  <h1>示例1</h1>
-  <Tabs v-model:selected='x'>
+<h1>Tabs 示例</h1>
+<div class="demo">
+    <h2>常规用法</h2>
+    <div class="demo-component">
+    <Tabs v-model:selected='x'>
       <Tab title="导航1">内容1</Tab>
       <Tab title="导航2">内容2</Tab>
-  </Tabs>
+   </Tabs>
+   </div>
+    <div class="demo-actions">
+        <Button>查看代码</Button>
+    </div>
+</div>
+
 </template>
 
 <script lang="ts">
@@ -22,4 +30,5 @@ export default {
 </script>
 
 <style>
+
 </style>

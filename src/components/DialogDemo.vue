@@ -1,6 +1,9 @@
 <template>
-    <div>Dialog 示例</div>
-    <h1>示例1</h1>
+ <h1>Dialog 示例</h1>
+    <div >
+        <div class="demo">
+            <h2>常规用法</h2>
+            <div class="demo-component">
             <Button @click="toggle">toggle</Button>
             <Dialog v-model:visible="x"                     :closeOnClickOverlay="false"
             :ok="f1" :cancel="f2">
@@ -13,10 +16,23 @@
                 <strong>内容</strong>
                 <div>文字</div>
             </template>
-
             </Dialog>
-        <h1>示例2</h1>
+            </div>
+        <div class="demo-actions">
+           <Button>查看代码</Button>
+        </div>
+        </div>
+    <div class="demo">
+        <h2>示例2</h2>
+        <div class="demo-component">
         <Button @click="showDialog">show</Button>
+        </div>
+    <div class="demo-actions">
+          <Button>查看代码</Button>
+        </div>
+    </div>
+
+</div>
 </template>
 
 <script lang="ts">
