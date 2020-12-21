@@ -14,7 +14,7 @@ export function md() {
       async ({ app }) => {
         app.use(async (ctx, next) => { // koa
           if (ctx.path.endsWith('.md')) {
-            ctx.type = 'ts'
+            ctx.type = 'js'
             const filePath = path.join(process.cwd(), ctx.path)
             ctx.body = mdToJs(fs.readFileSync(filePath).toString())
           } else {
