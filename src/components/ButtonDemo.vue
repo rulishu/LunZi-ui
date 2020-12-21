@@ -1,29 +1,30 @@
 <template>
-<h1>
-  Button示例
-</h1>
-  <Button1Demo/>
-  <Button2Demo/>
-  <Button3Demo/>
-  <Button4Demo/>
-  <Button5Demo/>
+ <div>Button 示例</div>
+  <Demo :component="Button1Demo" />
+  <Demo :component="Button2Demo" />
+  <Demo :component="Button3Demo" />
+  <Demo :component="Button4Demo" />
+  <Demo :component="Button5Demo" />
 </template>
 
 <script>
-import Button from '../lib/Button.vue'
-import Button1Demo from '../components/Button1demo.vue'
-import Button2Demo from '../components/Button2demo.vue'
-import Button3Demo from '../components/Button3demo.vue'
-import Button4Demo from '../components/Button4demo.vue'
-import Button5Demo from '../components/Button5demo.vue'
+import Demo from "./Demo.vue";
+import Button1Demo from "./Button1demo.vue";
+import Button2Demo from "./Button2demo.vue";
+import Button3Demo from "./Button3demo.vue";
+import Button4Demo from "./Button4demo.vue";
+import Button5Demo from "./Button5demo.vue";
 
 export default {
-  components:{Button,Button1Demo,Button2Demo,Button3Demo,Button4Demo,Button5Demo},
+  components:{Demo},
   setup() {
-    const onClick = ()=>{
-      console.log('hi')
-    }
-    return {onClick}
+    return {
+      Button1Demo,
+      Button2Demo,
+      Button3Demo,
+      Button4Demo,
+      Button5Demo
+    };
   }
 }
 </script>
