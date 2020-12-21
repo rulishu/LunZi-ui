@@ -56,7 +56,7 @@ $color: #007974;
 }
 .features{
   margin: 64px auto;
-  width: 400px;
+  padding:0 16px;
   @media (min-width: 800px) {
     width: 800px;
   }
@@ -67,7 +67,7 @@ $color: #007974;
     display: flex;
     flex-wrap: wrap;
     >li{
-      width: 400px;
+      // width: 400px;
       margin: 16px 0;
       display: grid;
       justify-content: start;

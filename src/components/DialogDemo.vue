@@ -1,12 +1,12 @@
 <template>
- <div>Dialog 示例</div>
+ <h1>Dialog 示例</h1>
     <Demo :component="Dialog1Demo" />
     <Demo :component="Dialog2Demo" />
 </template>
 
 <script lang="ts">
 import Demo from './Demo.vue';
-import Dialog1Demo from './Dialog1demo.vue';
+import Dialog1Demo from "./Dialog1demo.vue";
 import Dialog2Demo from './Dialog2demo.vue';
 
 export default {
